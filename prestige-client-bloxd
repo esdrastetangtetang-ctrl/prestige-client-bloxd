@@ -77,6 +77,7 @@
     text-shadow: 2px 2px 4px black;
     font-size: 40px;
     font-weight: bold;
+    text-shadow: 2px 2px 4px white;
     z-index: 9999;
     `;
     document.body.appendChild(prest);
