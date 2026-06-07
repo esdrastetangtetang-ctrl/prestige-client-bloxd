@@ -41,12 +41,52 @@
     `;
     document.body.appendChild(panel);
 
+    document.addEventListener('keydown', function(e) {
+        if (e.code === 'ShiftRight') {
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+            } else {
+                panel.style.display = 'block';
+            }
+        }
+    });
+
+    let loga = document.createElement('img');
+    loga.id = 'the-logo-prestige';
+    loga.src = 'data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23FFFFFF%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-sparkles%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22%20/%3E%3Cpath%20d=%22M16%2018a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m0%20-12a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m-7%2012a6%206%200%200%201%206%20-6a6%206%200%200%201%20-6%20-6a6%206%200%200%201%20-6%206a6%206%200%200%201%206%206%22%20/%3E%3C/svg%3E';
+    loga.style = `
+    position: fixed;
+    top: 10%;
+    left: 95%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+    height: 100px;
+    z-index: 9999;
+    pointer-events: none;
+    `;
+    document.body.appendChild(loga);
+
+    let prest = document.createElement('div');
+    prest.id = 'P-name';
+    prest.innerHTML = 'Prestige';
+    prest.style = `
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    font-size: 40px;
+    font-weight: bold;
+    z-index: 9999;
+    `;
+    document.body.appendChild(prest);
+
         let notif = document.createElement('div');
         notif.id = 'notif-for-cps';
         notif.style = `
         position: fixed;
-        top: 55%;
-        left: 5%;
+        top: 20%;
+        left: 95%;
         display: block;
         transform: translate(-50%,-50%);
         width: 100px;
@@ -132,11 +172,12 @@ let LOL = function LOL() {
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 400px;
+    top: 200px;
     align-items: center;
     text-align: center;
     justify-content: center;
-    left: 10px;
+    left: 85%;
+    tranform: translate(-50%,-50%);
     width: 200px;
     height: 200px;
     background-color: rgba(0,5,100,0.7);
@@ -458,7 +499,10 @@ let LOL = function LOL() {
     left: 28%;
     width: 470px;
     height: 370px;
-    display: block;
+    display: flex;
+    gap: 2px;
+    overflow-y: auto;
+    flex-direction: column;
     background-color: rgba(0,5,100,0);
     border-radius: 20px;
     border: 1px solid rgba(0,5,100,0.8);
@@ -486,7 +530,7 @@ let LOL = function LOL() {
      const tabs = document.createElement('div');
     tabs.id = 'prestige-options';
     tabs.style = `
-    position: fixed;
+    position: absolute;
     top: 20%;
     left: 3%;
     width: 150px;
@@ -495,6 +539,11 @@ let LOL = function LOL() {
     border-radius: 20px;
     border: 1px solid rgba(0,5,100,0.8);
     box-shadow: 2px 2px 4px black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
     `;
     panel.appendChild(tabs);
 
@@ -544,16 +593,17 @@ let LOL = function LOL() {
     Home.innerHTML = 'Home';
     Home.id = 'home';
     Home.style = `
-    position: fixed;
-    top: 30%;
-    left: 15.5%;
-    transform: translate(-59%,-50%);
-    width: 140px;
+    width: 100%;
     height: 50px;
     background-color: rgba(0,0,0,0);
     color: white;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
+    border: 1px solid rgba(0,5,100,0.5);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
     `;
     tabs.appendChild(Home);
 
@@ -566,6 +616,7 @@ let LOL = function LOL() {
             btnC.style.display = 'none';
             btnS.style.display = 'none';
             btnCps.style.display = 'none';
+            btnKeys.style.display = 'none';
         }
     }
 
@@ -573,17 +624,17 @@ let LOL = function LOL() {
     Combat.innerHTML = 'Combat';
     Combat.id = 'Combat';
     Combat.style = `
-    position: fixed;
-    top: 41%;
-    left: 15.5%;
-    transform: translate(-59%,-50%);
-    width: 140px;
+    width: 100%;
     height: 50px;
     background-color: rgba(0,0,0,0);
     color: white;
-    display: block;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
+    border: 1px solid rgba(0,5,100,0.5);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
     `;
     tabs.appendChild(Combat);
 
@@ -605,17 +656,17 @@ let LOL = function LOL() {
     Movement.innerHTML = 'Movement';
     Movement.id = 'Movement';
     Movement.style = `
-    position: fixed;
-    top: 63%;
-    left: 15.5%;
-    transform: translate(-59%,-50%);
-    width: 140px;
+    width: 100%;
     height: 50px;
     background-color: rgba(0,0,0,0);
     color: white;
-    display: block;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
+    border: 1px solid rgba(0,5,100,0.5);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
     `;
     tabs.appendChild(Movement);
 
@@ -637,17 +688,17 @@ let LOL = function LOL() {
     Visuals.innerHTML = 'Visuals';
     Visuals.id = 'Visuals';
     Visuals.style = `
-    position: fixed;
-    top: 52%;
-    left: 15.5%;
-    transform: translate(-59%,-50%);
-    width: 140px;
+    width: 100%;
     height: 50px;
     background-color: rgba(0,0,0,0);
     color: white;
-    display: block;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
+    border: 1px solid rgba(0,5,100,0.5);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
     `;
     tabs.appendChild(Visuals);
 
@@ -671,14 +722,16 @@ let LOL = function LOL() {
         btn.innerHTML = text;
         btn.style = `
         position: relative;
-        left: 50%;
-        width: 100%;
+        left: 48%;
+        top: 5%;
+        width: 93%;
         height: 50px;
-        margin: 12px;
+        margin: 6px;
         transform: translate(-50%,-50%);
         background-color: rgba(0,0,0,0);
         box-shadow: 2px 2px 4px black;
         border-radius: 20px;
+        font-weight: bold;
         display: none;
         transition: 0.5s;
         color: white;
@@ -734,7 +787,7 @@ let LOL = function LOL() {
 
     const UpdatesText = document.createElement('div');
     UpdatesText.id = 'all-updates-soon';
-    UpdatesText.innerHTML = '- not now';
+    UpdatesText.innerHTML = '- fixing the cps booster...';
     UpdatesText.style = `
     position: fixed;
     top: 45%;
@@ -743,6 +796,18 @@ let LOL = function LOL() {
     `;
     Welcome.appendChild(UpdatesText);
 
+    const UpdatesText2 = document.createElement('div');
+    UpdatesText2.id = 'all-updates-soon';
+    UpdatesText2.innerHTML = '- auto-ctrl soon...';
+    UpdatesText2.style = `
+    position: fixed;
+    top: 55%;
+    left: 30%;
+    text-shadow: 2px 2px 4px black;
+    `;
+    Welcome.appendChild(UpdatesText2);
+
+
     const aim = document.createElement('div');
     aim.innerHTML = '✕';
     aim.style = `
@@ -750,8 +815,8 @@ let LOL = function LOL() {
     color: red;
     text-shadow: 8px 8px 16px red;
     font-size: 30px;
-    top: 50%;
-    left: 50%;
+    top: 46.5%;
+    left: 49%;
     z-index: 9999;
     pointer-events: none;
     display: none;
@@ -766,8 +831,8 @@ let LOL = function LOL() {
     text-shadow: 8px 8px 16px red;
     transform: translate(-50%,-50%);
     font-size: 200px;
-    top: 50%;
-    left: 50%;
+    top: 45.5%;
+    left: 49.5%;
     z-index: 9999;
     pointer-events: none;
     display: none;
@@ -871,10 +936,10 @@ let LOL = function LOL() {
         }
     }
 
-    let btnCps = newButton('CPS Booster : OFF', options);
+    let btnCps = newButton('Right CPS Booster : OFF', options);
     btnCps.onclick = function() {
         if (btnCps.innerHTML.includes('OFF')) {
-            btnCps.innerHTML = 'CPS Booster : ON';
+            btnCps.innerHTML = 'Right CPS Booster : ON';
             btnCps.style.color = 'rgba(0,255,100,1)';
             document.addEventListener('keydown', function(ev) {
                 if (ev.key === 's') {
@@ -898,7 +963,7 @@ let LOL = function LOL() {
                 }
             });
         } else {
-            btnCps.innerHTML = 'CPS Booster : OFF';
+            btnCps.innerHTML = 'Right CPS Booster : OFF';
             btnCps.style.color = 'white';
         }
     }
