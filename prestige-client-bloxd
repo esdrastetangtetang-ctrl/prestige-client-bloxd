@@ -1,0 +1,811 @@
+// ==UserScript==
+// @name         Prestige Client 
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  try to take over the world!
+// @author       CartoonBloxd 
+// @match        https://bloxd.io/*
+// @match        https://playbloxd.io/*
+// @match        https://https://doodlecube.io//*
+// @match        https://bloxdhop.io/*
+// @match        https://eviltower.io/*
+// @match        https://playbloxd.com/*
+// @match        https://buildminecreate.io/*
+// @match        https://buildhub.work/*
+// @icon         data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23FFFFFF%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-sparkles%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22%20/%3E%3Cpath%20d=%22M16%2018a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m0%20-12a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m-7%2012a6%206%200%200%201%206%20-6a6%206%200%200%201%20-6%20-6a6%206%200%200%201%20-6%206a6%206%200%200%201%206%206%22%20/%3E%3C/svg%3E
+// @grant        none
+// ==/UserScript==
+
+
+
+(function() {
+
+    window.onerror = () => alert('Issue Detected');
+
+    const panel = document.createElement('div');
+    panel.id = 'panel';
+    panel.style = `
+    position: fixed;
+    top: 70px;
+    left: 300px;
+    width: 700px;
+    height: 500px;
+    background-color: rgba(0,5,100,0.7);
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    display: block;
+    display: flex;
+    box-shadow: 4px 4px 8px black;
+    border: 3px solid rgba(0,5,100,0.8);
+    `;
+    document.body.appendChild(panel);
+
+        let notif = document.createElement('div');
+        notif.id = 'notif-for-cps';
+        notif.style = `
+        position: fixed;
+        top: 55%;
+        left: 5%;
+        display: block;
+        transform: translate(-50%,-50%);
+        width: 100px;
+        height: 50px;
+        background-color: rgba(0,5,100,0.7);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        color: white;
+        box-shadow: 4px 4px 8px black;
+        padding: 5px;
+        z-index: 9999;
+        `;
+        document.body.appendChild(notif);
+
+    function thisCps() {
+    let clicks = [];
+
+    document.addEventListener('mousedown', function(ev) {
+        if (ev.button === 0) {
+            clicks.push(Date.now());
+        }
+    });
+
+        document.addEventListener('mousedown', function(ev) {
+        if (ev.button === 2) {
+            clicks.push(Date.now());
+        }
+    });
+let LOL = function LOL() {
+    const now = Date.now();
+    clicks = clicks.filter(clickTime => now - clickTime < 1000);
+    notif.innerHTML = clicks.length + ' CPS';
+}
+    setInterval(LOL, 100);
+    }
+    thisCps();
+
+    function Timer() {
+        let now = new Date();
+        Button.innerHTML = 'Clock: ' + now.toLocaleTimeString();
+    }
+    setInterval(Timer, 1000);
+
+    const Button = document.createElement('button');
+    Button.id = 'button-for panel';
+    Button.style = `
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    color: white;
+    height: 50px;
+    background-color: rgba(0,5,100,0.7);
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    display: block;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid rgba(0,5,100,0.7);
+    transition: 0.5s;
+    box-shadow: 2px 2px 4px black;
+    text-shadow: 2px 2px 4px white;
+    `;
+    document.body.appendChild(Button);
+
+    Button.onclick = function() {
+        if (panel.style.display === 'block') {
+            panel.style.display = 'none';
+        } else {
+            panel.style.display = 'block';
+        }
+    }
+
+    const KeyBoard = document.createElement('div');
+    KeyBoard.id = 'key-board';
+    KeyBoard.innerHTML = '';
+    KeyBoard.style = `
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 400px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    left: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0,5,100,0.7);
+    color: white;
+    border: 2px solid rgba(0,5,100,0.7);;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    box-shadow: 4px 4px 8px black;
+    `;
+    document.body.appendChild(KeyBoard);
+
+    const KeyW = document.createElement('div');
+    KeyW.id = 'w-key';
+    KeyW.innerHTML = 'W';
+    KeyW.style = `
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    width: 50px;
+    text-shadow: 2px 2px 4px solid black;
+    background-color: rgba(0,5,100,0.7);
+    border: 2px solid rgba(0,5,100,0.7);
+    box-shadow: 2px 2px 4px black;
+    height: 50px;
+    `;
+    KeyBoard.appendChild(KeyW);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === 'w') {
+            KeyW.style.backgroundColor = 'white';
+        }
+    });
+
+    document.addEventListener('keyup', function(e) {
+        if (e.key.toLowerCase() === 'w') {
+            KeyW.style.backgroundColor = 'rgba(0,5,100,0.7)';
+        }
+    });
+
+    const KeyS = document.createElement('div');
+    KeyS.id = 's-key';
+    KeyS.innerHTML = 'S';
+    KeyS.style = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    width: 50px;
+    text-shadow: 2px 2px 4px solid black;
+    background-color: rgba(0,5,100,0.7);
+    border: 2px solid rgba(0,5,100,0.7);
+    box-shadow: 2px 2px 4px black;
+    height: 50px;
+    `;
+    KeyBoard.appendChild(KeyS);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === 's') {
+            KeyS.style.backgroundColor = 'white';
+        }
+    });
+
+    document.addEventListener('keyup', function(e) {
+        if (e.key.toLowerCase() === 's') {
+            KeyS.style.backgroundColor = 'rgba(0,5,100,0.7)';
+        }
+    });
+
+    const KeyA = document.createElement('div');
+    KeyA.id = 'a-key';
+    KeyA.innerHTML = 'A';
+    KeyA.style = `
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    font-size: 30px;
+    transform: translate(-50%,-50%);
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    width: 50px;
+    text-shadow: 2px 2px 4px solid black;
+    background-color: rgba(0,5,100,0.7);
+    border: 2px solid rgba(0,5,100,0.7);;
+    box-shadow: 2px 2px 4px black;
+    height: 50px;
+    `;
+     KeyBoard.appendChild(KeyA);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === 'a') {
+            KeyA.style.backgroundColor = 'white';
+        }
+    });
+
+    document.addEventListener('keyup', function(e) {
+        if (e.key.toLowerCase() === 'a') {
+            KeyA.style.backgroundColor = 'rgba(0,5,100,0.7)';
+        }
+    });
+
+     const KeyD = document.createElement('div');
+    KeyD.id = 'd-key';
+    KeyD.innerHTML = 'D';
+    KeyD.style = `
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    font-size: 30px;
+    transform: translate(-50%,-50%);
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    width: 50px;
+    text-shadow: 2px 2px 4px solid black;
+    background-color: rgba(0,5,100,0.7);
+    border: 2px solid rgba(0,5,100,0.7);
+    box-shadow: 2px 2px 4px black;
+    height: 50px;
+    `;
+     KeyBoard.appendChild(KeyD);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === 'd') {
+            KeyD.style.backgroundColor = 'white';
+        }
+    });
+
+    document.addEventListener('keyup', function(e) {
+        if (e.key.toLowerCase() === 'd') {
+            KeyD.style.backgroundColor = 'rgba(0,5,100,0.7)';
+        }
+    });
+
+    const Left = document.createElement('div');
+    Left.id = 'Left-Mouse';
+    Left.innerHTML = 'LMB';
+    Left.style = `
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    display: flex;
+    font-size: 20px;
+    transform: translate(-50%,-50%);
+    color: white;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    width: 50px;
+    text-shadow: 2px 2px 4px solid black;
+    align-items: center;
+    background-color: rgba(0,5,100,0.7);
+    border: 2px solid rgba(0,5,100,0.7);
+    box-shadow: 2px 2px 4px black;
+    height: 50px;
+    `;
+     KeyBoard.appendChild(Left);
+
+    document.addEventListener('mousedown', function(e) {
+        if (e.button === 0) {
+            Left.style.backgroundColor = 'white';
+        }
+    });
+
+    document.addEventListener('mouseup', function(e) {
+        if (e.button === 0) {
+            Left.style.backgroundColor = 'rgba(0,5,100,0.7)';
+        }
+    });
+
+    const Right = document.createElement('div');
+    Right.id = 'Right-Mouse';
+    Right.innerHTML = 'RMB';
+    Right.style = `
+    position: fixed;
+    top: 20%;
+    left: 80%;
+    display: flex;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    width: 50px;
+    text-shadow: 2px 2px 4px solid black;
+    align-items: center;
+    background-color: rgba(0,5,100,0.7);
+    border: 2px solid rgba(0,5,100,0.7);
+    box-shadow: 2px 2px 4px black;
+    height: 50px;
+    `;
+     KeyBoard.appendChild(Right);
+
+    document.addEventListener('mousedown', function(e) {
+        if (e.button === 2) {
+            Right.style.backgroundColor = 'white';
+        }
+    });
+
+    document.addEventListener('mouseup', function(e) {
+        if (e.button === 2) {
+            Right.style.backgroundColor = 'rgba(0,5,100,0.7)';
+        }
+    });
+
+    const Space = document.createElement('div');
+    Space.id = 'space-key';
+    Space.innerHTML = 'space';
+    Space.style = `
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    width: 80%;
+    height: 25%;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 4px solid black;
+    justify-content: center;
+    transform: translate(-50%,-50%);
+    color: white;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    align-items: ;
+    background-color: rgba(0,5,100,0.7);
+    border: 2px solid rgba(0,5,100,0.7);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    `;
+     KeyBoard.appendChild(Space);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === ' ') {
+            Space.style.backgroundColor = 'white';
+        }
+    });
+
+    document.addEventListener('keyup', function(e) {
+        if (e.key === ' ') {
+            Space.style.backgroundColor = 'rgba(0,5,100,0.7)';
+        }
+    });
+
+
+    const logoSpace = document.createElement('button');
+    logoSpace.id = 'space-for-logo';
+    logoSpace.style = `
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 70px;
+    background-color: rgba(0,5,100,0);
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px black;
+    border: 1px solid rgba(0,5,100,0.8);
+    `;
+    panel.appendChild(logoSpace);
+
+    const logo = document.createElement('img');
+    logo.src = 'data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23FFFFFF%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-sparkles%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22%20/%3E%3Cpath%20d=%22M16%2018a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m0%20-12a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m-7%2012a6%206%200%200%201%206%20-6a6%206%200%200%201%20-6%20-6a6%206%200%200%201%20-6%206a6%206%200%200%201%206%206%22%20/%3E%3C/svg%3E';
+    logo.style = `
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    color: white;
+    height: 50px;
+    `;
+    logoSpace.appendChild(logo);
+
+    const Ptitle = document.createElement('div');
+    Ptitle.id = 'Prestige-title';
+    Ptitle.innerHTML = 'Prestige ';
+    Ptitle.style = `
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    font-size: 40px;
+    font-weight: bold;
+    `;
+    logoSpace.appendChild(Ptitle);
+
+    const options = document.createElement('div');
+    options.id = 'prestige-options';
+    options.style = `
+    position: fixed;
+    top: 20%;
+    left: 28%;
+    width: 470px;
+    height: 370px;
+    display: block;
+    background-color: rgba(0,5,100,0);
+    border-radius: 20px;
+    border: 1px solid rgba(0,5,100,0.8);
+    box-shadow: 2px 2px 4px black;
+    `;
+    panel.appendChild(options);
+
+    const options2 = document.createElement('div');
+    options2.id = 'prestige-options2';
+    options2.style = `
+    position: fixed;
+    top: 20%;
+    left: 28%;
+    width: 470px;
+    height: 370px;
+    background-color: rgba(0,5,100,0);
+    display: none;
+    border-radius: 20px;
+    border: 1px solid rgba(0,5,100,0.8);
+    box-shadow: 2px 2px 4px black;
+    `;
+    panel.appendChild(options2);
+
+
+     const tabs = document.createElement('div');
+    tabs.id = 'prestige-options';
+    tabs.style = `
+    position: fixed;
+    top: 20%;
+    left: 3%;
+    width: 150px;
+    height: 370px;
+    background-color: rgba(0,5,100,0);
+    border-radius: 20px;
+    border: 1px solid rgba(0,5,100,0.8);
+    box-shadow: 2px 2px 4px black;
+    `;
+    panel.appendChild(tabs);
+
+    const links = document.createElement('button');
+    links.id = 'all-links';
+    links.style = `
+    position: fixed;
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-position: center;
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M2%208a4%204%200%200%201%204%20-4h12a4%204%200%200%201%204%204v8a4%204%200%200%201%20-4%204h-12a4%204%200%200%201%20-4%20-4v-8%22/%3E%3Cpath%20d=%22M10%209l5%203l-5%203l0%20-6%22/%3E%3C/svg%3E');
+    border-radius: 15px;
+    padding: 5px;
+    `;
+    panel.appendChild(links);
+
+    links.onclick = function() {
+        window.open('https://www.youtube.com/@cartoon-bloxd', '_blanc');
+    }
+
+    const links2 = document.createElement('button');
+    links2.id = 'all-links';
+    links2.style = `
+    position: fixed;
+    top: 10%;
+    left: 80%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-position: center;
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M9%2019c-4.3%201.4%20-4.3%20-2.5%20-6%20-3m12%205v-3.5c0%20-1%20.1%20-1.4%20-.5%20-2c2.8%20-.3%205.5%20-1.4%205.5%20-6a4.6%204.6%200%200%200%20-1.3%20-3.2a4.2%204.2%200%200%200%20-.1%20-3.2s-1.1%20-.3%20-3.5%201.3a12.3%2012.3%200%200%200%20-6.2%200c-2.4%20-1.6%20-3.5%20-1.3%20-3.5%20-1.3a4.2%204.2%200%200%200%20-.1%203.2a4.6%204.6%200%200%200%20-1.3%203.2c0%204.6%202.7%205.7%205.5%206c-.6%20.6%20-.6%201.2%20-.5%202v3.5%22/%3E%3C/svg%3E');
+    border-radius: 15px;
+    padding: 5px;
+    `;
+    panel.appendChild(links2);
+
+    links2.onclick = function() {
+        window.open('https://github.com/esdrastetangtetang-ctrl', '_blanc');
+    }
+
+    const Home = document.createElement('button');
+    Home.innerHTML = 'Home';
+    Home.id = 'home';
+    Home.style = `
+    position: fixed;
+    top: 30%;
+    left: 15.5%;
+    transform: translate(-59%,-50%);
+    width: 140px;
+    height: 50px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 15px;
+    `;
+    tabs.appendChild(Home);
+
+    Home.onclick = function() {
+        let O = true;
+        if (O) {
+            Welcome.style.display = 'block';
+            AimHelper.style.display = 'none';
+            cpsCounter.style.display = 'none';
+            btnC.style.display = 'none';
+        }
+    }
+
+    const Combat = document.createElement('button');
+    Combat.innerHTML = 'Combat';
+    Combat.id = 'Combat';
+    Combat.style = `
+    position: fixed;
+    top: 41%;
+    left: 15.5%;
+    transform: translate(-59%,-50%);
+    width: 140px;
+    height: 50px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    display: block;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 15px;
+    `;
+    tabs.appendChild(Combat);
+
+    Combat.onclick = function() {
+        let O = true;
+        if (O) {
+            AimHelper.style.display = 'block';
+            btnKeys.style.display = 'none';
+            Welcome.style.display = 'none';
+            cpsCounter.style.display = 'none';
+            btnC.style.display = 'block';
+            O = false;
+        }
+    }
+
+    const Visuals = document.createElement('button');
+    Visuals.innerHTML = 'Visuals';
+    Visuals.id = 'Visuals';
+    Visuals.style = `
+    position: fixed;
+    top: 52%;
+    left: 15.5%;
+    transform: translate(-59%,-50%);
+    width: 140px;
+    height: 50px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    display: block;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 15px;
+    `;
+    tabs.appendChild(Visuals);
+
+    Visuals.onclick = function() {
+        let O = true;
+        if (O) {
+            AimHelper.style.display = 'none';
+            Welcome.style.display = 'none';
+            btnKeys.style.display = 'block';
+            cpsCounter.style.display = 'block';
+            btnC.style.display = 'none';
+            O = false;
+        }
+    }
+
+
+    function newButton(text, ParentPanel) {
+        let btn = document.createElement('button');
+        btn.innerHTML = text;
+        btn.style = `
+        position: absolute;
+        top: 7%;
+        left: 50%;
+        width: 100%;
+        height: 50px;
+        transform: translate(-50%,-50%);
+        background-color: rgba(0,0,0,0);
+        box-shadow: 2px 2px 4px black;
+        border-radius: 20px;
+        display: none;
+        transition: o.5s;
+        color: white;
+        padding: 5px;
+        `;
+        ParentPanel.appendChild(btn);
+        return btn;
+    }
+    let AimHelper = newButton('Aim Helper : OFF', options);
+    AimHelper.style.display = 'none';
+    AimHelper.onclick = function() {
+        let O = AimHelper.innerHTML.includes('OFF');
+        if (O) {
+            AimHelper.innerHTML = 'Aim Helper : ON';
+            aim.style.display = 'block';
+            AimHelper.style.color = 'rgba(0,255,100,1)';
+        } else {
+            AimHelper.innerHTML = 'Aim Helper : OFF';
+            aim.style.display = 'none';
+            AimHelper.style.color = 'white';
+        }
+    }
+
+    let Welcome = document.createElement('div');
+    Welcome.id = 'welcome';
+    Welcome.innerHTML = 'Welcome to Prestige Client';
+    Welcome.style = `
+    position: fixed;
+    width: 66%;
+    height: 40px;
+    font-size: 30px;
+    border: 1px solid rgba(0,5,100,0.9);
+    background-color: rgba(0,0,0,0);
+    box-shadow: 2px 2px 4px black;
+    text-shadow: 2px 2px 4px black;
+    border-radius: 20px;
+    transition: o.5s;
+    color: white;
+    padding: 5px;
+    `;
+    options.appendChild(Welcome);
+
+    let Updates = document.createElement('div');
+    Updates.id = 'Updates';
+    Updates.innerHTML = 'Updates soon :';
+    Updates.style = `
+    position: fixed;
+    top: 35%;
+    left: 30%;
+    text-shadow: 2px 2px 4px black;
+    `;
+    Welcome.appendChild(Updates);
+
+    const UpdatesText = document.createElement('div');
+    UpdatesText.id = 'all-updates-soon';
+    UpdatesText.innerHTML = '- not now';
+    UpdatesText.style = `
+    position: fixed;
+    top: 45%;
+    left: 30%;
+    text-shadow: 2px 2px 4px black;
+    `;
+    Welcome.appendChild(UpdatesText);
+
+    const aim = document.createElement('div');
+    aim.innerHTML = '✕';
+    aim.style = `
+    position: fixed;
+    color: red;
+    text-shadow: 8px 8px 16px red;
+    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    display: none;
+    `;
+    document.body.appendChild(aim);
+
+    let aimCircle = document.createElement('div');
+    aimCircle.innerHTML = '◌';
+    aimCircle.style = `
+    position: fixed;
+    color: red;
+    text-shadow: 8px 8px 16px red;
+    transform: translate(-50%,-50%);
+    font-size: 200px;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    display: none;
+    `;
+    document.body.appendChild(aimCircle);
+
+
+    document.addEventListener('mousedown', function(ev) {
+        if (ev.button === 0 || ev.button === 2) {
+            aimCircle.style.color = 'green';
+            aimCircle.style.textShadow = '4px 4px 8px green';
+        }
+    });
+
+    document.addEventListener('mouseup', function(ev) {
+        if (ev.button === 0 || ev.button === 2) {
+            aimCircle.style.color = 'red';
+            aimCircle.style.textShadow = '4px 4px 8px red';
+        }
+    });
+
+    document.addEventListener('mousedown', function(ev) {
+        if (ev.button === 0 || ev.button === 2) {
+            aim.style.color = 'green';
+            aim.style.textShadow = '4px 4px 8px green';
+        }
+    });
+
+    document.addEventListener('mouseup', function(ev) {
+        if (ev.button === 0 || ev.button === 2) {
+            aim.style.color = 'red';
+            aim.style.textShadow = '4px 4px 8px red';
+        }
+    });
+
+    let btnKeys = newButton('Keystrokes : OFF', options);
+    btnKeys.style.display = 'none';
+    btnKeys.onclick = function() {
+        if (KeyBoard.style.display === 'none') {
+
+            KeyBoard.style.display = 'block';
+            btnKeys.innerHTML = 'Keystrokes : ON';
+            btnKeys.style.color = 'rgba(0,255,100,1)';
+        } else {
+            KeyBoard.style.display = 'none';
+            btnKeys.innerHTML = 'Keystrokes : OFF';
+            btnKeys.style.color = 'white';
+        }
+    }
+
+    let cpsCounter = newButton('CPS Counter : OFF', options);
+    cpsCounter.style.top = '22%';
+    cpsCounter.onclick = function() {
+        if (cpsCounter.innerHTML.includes('OFF')) {
+            cpsCounter.innerHTML = 'CPS Counter : ON';
+            cpsCounter.style.color = 'rgba(0,255,100,1)';
+            notif.style.display = 'block';
+        } else {
+            cpsCounter.innerHTML = 'CPS Counter : OFF';
+            cpsCounter.style.color = 'white';
+            notif.style.display = 'none';
+        }
+    }
+
+    let btnC = newButton('FOV Circle : OFF', options);
+    btnC.style.top = '22%';
+    btnC.onclick = function() {
+    if (btnC.innerHTML.includes('OFF')) {
+        btnC.innerHTML = 'FOV Circle : ON';
+        cpsCounter.style.color = 'rgba(0,255,100,1)';
+        aimCircle.style.display = 'block';
+    } else {
+        btnC.innerHTML = 'FOV Circle : OFF';
+        cpsCounter.style.color = 'white';
+        aimCircle.style.display = 'none';
+    }
+    }
+
+})();
