@@ -565,6 +565,7 @@ let LOL = function LOL() {
             cpsCounter.style.display = 'none';
             btnC.style.display = 'none';
             btnS.style.display = 'none';
+            btnCps.style.display = 'none';
         }
     }
 
@@ -872,7 +873,7 @@ let LOL = function LOL() {
 
     let btnCps = newButton('CPS Booster : OFF', options);
     btnCps.onclick = function() {
-        if (btnCps.innerHtml.inclues('OFF')) {
+        if (btnCps.innerHTML.includes('OFF')) {
             btnCps.innerHTML = 'CPS Booster : ON';
             btnCps.style.color = 'rgba(0,255,100,1)';
             document.addEventListener('keydown', function(ev) {
