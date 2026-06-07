@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         Prestige Client 
+// @name         Prestige Client
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  try to take over the world!
-// @author       CartoonBloxd 
+// @author       CartoonBloxd
 // @match        https://bloxd.io/*
 // @match        https://playbloxd.io/*
 // @match        https://https://doodlecube.io//*
@@ -564,6 +564,7 @@ let LOL = function LOL() {
             AimHelper.style.display = 'none';
             cpsCounter.style.display = 'none';
             btnC.style.display = 'none';
+            btnS.style.display = 'none';
         }
     }
 
@@ -593,6 +594,40 @@ let LOL = function LOL() {
             Welcome.style.display = 'none';
             cpsCounter.style.display = 'none';
             btnC.style.display = 'block';
+            btnS.style.display = 'none';
+            btnCps.style.display = 'block';
+            O = false;
+        }
+    }
+
+    const Movement = document.createElement('button');
+    Movement.innerHTML = 'Movement';
+    Movement.id = 'Movement';
+    Movement.style = `
+    position: fixed;
+    top: 63%;
+    left: 15.5%;
+    transform: translate(-59%,-50%);
+    width: 140px;
+    height: 50px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    display: block;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 15px;
+    `;
+    tabs.appendChild(Movement);
+
+    Movement.onclick = function() {
+        let O = true;
+        if (O) {
+            AimHelper.style.display = 'none';
+            Welcome.style.display = 'none';
+            btnKeys.style.display = 'none';
+            cpsCounter.style.display = 'none';
+            btnC.style.display = 'none';
+            btnS.style.display = 'block';
+            btnCps.style.display = 'none';
             O = false;
         }
     }
@@ -623,6 +658,8 @@ let LOL = function LOL() {
             btnKeys.style.display = 'block';
             cpsCounter.style.display = 'block';
             btnC.style.display = 'none';
+            btnS.style.display = 'none';
+            btnCps.style.display = 'none';
             O = false;
         }
     }
@@ -632,17 +669,17 @@ let LOL = function LOL() {
         let btn = document.createElement('button');
         btn.innerHTML = text;
         btn.style = `
-        position: absolute;
-        top: 7%;
+        position: relative;
         left: 50%;
         width: 100%;
         height: 50px;
+        margin: 12px;
         transform: translate(-50%,-50%);
         background-color: rgba(0,0,0,0);
         box-shadow: 2px 2px 4px black;
         border-radius: 20px;
         display: none;
-        transition: o.5s;
+        transition: 0.5s;
         color: white;
         padding: 5px;
         `;
@@ -781,7 +818,6 @@ let LOL = function LOL() {
     }
 
     let cpsCounter = newButton('CPS Counter : OFF', options);
-    cpsCounter.style.top = '22%';
     cpsCounter.onclick = function() {
         if (cpsCounter.innerHTML.includes('OFF')) {
             cpsCounter.innerHTML = 'CPS Counter : ON';
@@ -795,7 +831,6 @@ let LOL = function LOL() {
     }
 
     let btnC = newButton('FOV Circle : OFF', options);
-    btnC.style.top = '22%';
     btnC.onclick = function() {
     if (btnC.innerHTML.includes('OFF')) {
         btnC.innerHTML = 'FOV Circle : ON';
@@ -806,6 +841,65 @@ let LOL = function LOL() {
         cpsCounter.style.color = 'white';
         aimCircle.style.display = 'none';
     }
+    }
+
+    let btnS = newButton('Auto Sprint : OFF', options);
+    btnS.onclick = function() {
+        if (btnS.innerHTML.includes('OFF')) {
+            btnS.innerHTML = 'Auto Sprint : ON';
+            btnS.style.color = 'rgba(0,255,100,1)';
+            document.dispatchEvent(new KeyboardEvent('keydown', {
+                key: 'Shift',
+                code: 'ShiftLeft',
+                keyCode: 16,
+                which: 16,
+                bubbles: true,
+                cancelable: true
+            }));
+        } else {
+            btnS.innerHTML = 'Auto Sprint : OFF';
+            btnS.style.color = 'white';
+            document.dispatchEvent(new KeyboardEvent('keyup', {
+                key: 'Shift',
+                code: 'ShiftLeft',
+                keyCode: 16,
+                which: 16,
+                bubbles: true,
+                cancelable: true
+            }));
+        }
+    }
+
+    let btnCps = newButton('CPS Booster : OFF', options);
+    btnCps.onclick = function() {
+        if (btnCps.innerHtml.inclues('OFF')) {
+            btnCps.innerHTML = 'CPS Booster : ON';
+            btnCps.style.color = 'rgba(0,255,100,1)';
+            document.addEventListener('keydown', function(ev) {
+                if (ev.key === 's') {
+                    document.dispatchEvent(new KeyboardEvent('keydown', {
+                key: 'Control',
+                code: 'ControlLeft',
+                keyCode: 17,
+                which: 17,
+                bubbles: true,
+                cancelable: true
+                    }));
+
+                    document.dispatchEvent(new KeyboardEvent('keyup', {
+                key: 'Control',
+                code: 'ControlLeft',
+                keyCode: 17,
+                which: 17,
+                bubbles: true,
+                cancelable: true
+                    }));
+                }
+            });
+        } else {
+            btnCps.innerHTML = 'CPS Booster : OFF';
+            btnCps.style.color = 'white';
+        }
     }
 
 })();
