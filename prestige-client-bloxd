@@ -145,6 +145,7 @@ let LOL = function LOL() {
     z-index: 9999;
     backdrop-filter: blur(10px);
     display: block;
+    transition: 0.5s;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -591,7 +592,7 @@ let LOL = function LOL() {
     }
 
     const Home = document.createElement('button');
-    Home.innerHTML = 'Home';
+    Home.innerHTML = '🏠Home';
     Home.id = 'home';
     Home.style = `
     width: 100%;
@@ -618,11 +619,12 @@ let LOL = function LOL() {
             btnS.style.display = 'none';
             btnCps.style.display = 'none';
             btnKeys.style.display = 'none';
+            Welcome2.style.display = 'none';
         }
     }
 
     const Combat = document.createElement('button');
-    Combat.innerHTML = 'Combat';
+    Combat.innerHTML = '⚔️Combat';
     Combat.id = 'Combat';
     Combat.style = `
     width: 100%;
@@ -649,12 +651,13 @@ let LOL = function LOL() {
             btnC.style.display = 'block';
             btnS.style.display = 'none';
             btnCps.style.display = 'block';
+            Welcome2.style.display = 'none';
             O = false;
         }
     }
 
     const Movement = document.createElement('button');
-    Movement.innerHTML = 'Movement';
+    Movement.innerHTML = '🏃Movement';
     Movement.id = 'Movement';
     Movement.style = `
     width: 100%;
@@ -681,12 +684,13 @@ let LOL = function LOL() {
             btnC.style.display = 'none';
             btnS.style.display = 'block';
             btnCps.style.display = 'none';
+            Welcome2.style.display = 'none';
             O = false;
         }
     }
 
     const Visuals = document.createElement('button');
-    Visuals.innerHTML = 'Visuals';
+    Visuals.innerHTML = '👁Visuals';
     Visuals.id = 'Visuals';
     Visuals.style = `
     width: 100%;
@@ -713,10 +717,95 @@ let LOL = function LOL() {
             btnC.style.display = 'none';
             btnS.style.display = 'none';
             btnCps.style.display = 'none';
+            Welcome2.style.display = 'none';
             O = false;
         }
     }
 
+    const Settings = document.createElement('button');
+    Settings.innerHTML = '⚙️Settings';
+    Settings.id = 'Settings';
+    Settings.style = `
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 15px;
+    border: 1px solid rgba(0,5,100,0.5);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
+    `;
+    tabs.appendChild(Settings);
+
+    Settings.onclick = function() {
+        let O = true;
+        if (O) {
+            AimHelper.style.display = 'none';
+            Welcome.style.display = 'none';
+            btnKeys.style.display = 'none';
+            cpsCounter.style.display = 'none';
+            btnC.style.display = 'none';
+            btnS.style.display = 'none';
+            btnCps.style.display = 'none';
+            Welcome2.style.display = 'block';
+            O = false;
+        }
+    }
+
+    let Welcome2 = document.createElement('div');
+    Welcome2.id = 'welcome2';
+    Welcome2.innerHTML = 'Settings';
+    Welcome.style = `
+    position: fixed;
+    width: 66%;
+    height: 40px;
+    font-size: 30px;
+    border: 1px solid rgba(0,5,100,0.9);
+    background-color: rgba(0,0,0,0);
+    box-shadow: 2px 2px 4px black;
+    text-shadow: 2px 2px 4px black;
+    border-radius: 20px;
+    transition: o.5s;
+    color: white;
+    padding: 5px;
+    `;
+    options.appendChild(Welcome2);
+
+    let Updates2 = document.createElement('div');
+    Updates2.id = 'developer';
+    Updates2.innerHTML = 'Developer :';
+    Updates.style = `
+    position: fixed;
+    top: 35%;
+    left: 30%;
+    text-shadow: 2px 2px 4px black;
+    `;
+    Welcome.appendChild(Updates);
+
+    const UpdatesText2 = document.createElement('div');
+    UpdatesText2.id = 'all-dev-info-1';
+    UpdatesText2.innerHTML = '- This Client is made by @cartoon-bloxd on youtube and esdrastetangtetang-ctrl on github...';
+    UpdatesText.style = `
+    position: fixed;
+    top: 45%;
+    left: 30%;
+    text-shadow: 2px 2px 4px black;
+    `;
+    Welcome.appendChild(UpdatesText2);
+
+    const UpdatesText3 = document.createElement('div');
+    UpdatesText3.id = 'all-dev-info2';
+    UpdatesText3.innerHTML = '- it took me 2 weeks to make this client :)';
+    UpdatesText3.style = `
+    position: fixed;
+    top: 55%;
+    left: 30%;
+    text-shadow: 2px 2px 4px black;
+    `;
+    Welcome.appendChild(UpdatesText3);
 
     function newButton(text, ParentPanel) {
         let btn = document.createElement('button');
@@ -937,10 +1026,10 @@ let LOL = function LOL() {
         }
     }
 
-    let btnCps = newButton('Right CPS Booster : OFF', options);
+    let btnCps = newButton('AutoCtrl : OFF', options);
     btnCps.onclick = function() {
         if (btnCps.innerHTML.includes('OFF')) {
-            btnCps.innerHTML = 'Right CPS Booster : ON';
+            btnCps.innerHTML = '';
             btnCps.style.color = 'rgba(0,255,100,1)';
             document.addEventListener('keydown', function(ev) {
                 if (ev.key === 's') {
@@ -964,7 +1053,7 @@ let LOL = function LOL() {
                 }
             });
         } else {
-            btnCps.innerHTML = 'Right CPS Booster : OFF';
+            btnCps.innerHTML = 'A';
             btnCps.style.color = 'white';
         }
     }
