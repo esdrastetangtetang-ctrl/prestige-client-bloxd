@@ -605,7 +605,7 @@ let LOL = function LOL() {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.2s;
+    transition: 0.5s;
     `;
     tabs.appendChild(Home);
 
@@ -637,7 +637,7 @@ let LOL = function LOL() {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.2s;
+    transition: 0.5s;
     `;
     tabs.appendChild(Combat);
 
@@ -670,7 +670,7 @@ let LOL = function LOL() {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.2s;
+    transition: 0.5s;
     `;
     tabs.appendChild(Movement);
 
@@ -703,7 +703,7 @@ let LOL = function LOL() {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.2s;
+    transition: 0.5s;
     `;
     tabs.appendChild(Visuals);
 
@@ -758,7 +758,7 @@ let LOL = function LOL() {
     let Welcome2 = document.createElement('div');
     Welcome2.id = 'welcome2';
     Welcome2.innerHTML = 'Settings';
-    Welcome.style = `
+    Welcome2.style = `
     position: fixed;
     width: 66%;
     height: 40px;
@@ -768,7 +768,7 @@ let LOL = function LOL() {
     box-shadow: 2px 2px 4px black;
     text-shadow: 2px 2px 4px black;
     border-radius: 20px;
-    transition: o.5s;
+    transition: 0.5s;
     color: white;
     padding: 5px;
     `;
@@ -777,24 +777,24 @@ let LOL = function LOL() {
     let Updates2 = document.createElement('div');
     Updates2.id = 'developer';
     Updates2.innerHTML = 'Developer :';
-    Updates.style = `
+    Updates2.style = `
     position: fixed;
     top: 35%;
     left: 30%;
     text-shadow: 2px 2px 4px black;
     `;
-    Welcome.appendChild(Updates);
+    Welcome2.appendChild(Updates2);
 
     const UpdatesText2 = document.createElement('div');
     UpdatesText2.id = 'all-dev-info-1';
     UpdatesText2.innerHTML = '- This Client is made by @cartoon-bloxd on youtube and esdrastetangtetang-ctrl on github...';
-    UpdatesText.style = `
+    UpdatesText2.style = `
     position: fixed;
     top: 45%;
     left: 30%;
     text-shadow: 2px 2px 4px black;
     `;
-    Welcome.appendChild(UpdatesText2);
+    Welcome2.appendChild(UpdatesText2);
 
     const UpdatesText3 = document.createElement('div');
     UpdatesText3.id = 'all-dev-info2';
@@ -805,7 +805,7 @@ let LOL = function LOL() {
     left: 30%;
     text-shadow: 2px 2px 4px black;
     `;
-    Welcome.appendChild(UpdatesText3);
+    Welcome2.appendChild(UpdatesText3);
 
     function newButton(text, ParentPanel) {
         let btn = document.createElement('button');
@@ -858,7 +858,7 @@ let LOL = function LOL() {
     box-shadow: 2px 2px 4px black;
     text-shadow: 2px 2px 4px black;
     border-radius: 20px;
-    transition: o.5s;
+    transition: 0.5s;
     color: white;
     padding: 5px;
     `;
