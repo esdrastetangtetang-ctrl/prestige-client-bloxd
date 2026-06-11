@@ -30,14 +30,14 @@
     left: 300px;
     width: 700px;
     height: 500px;
-    background-color: rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
     z-index: 9999;
     backdrop-filter: blur(10px);
     border-radius: 20px;
     display: block;
     display: flex;
     box-shadow: 4px 4px 8px black;
-    border: 3px solid rgba(0,5,100,0.8);
+    border: 3px solid rgba(0,0,0,0);
     `;
     document.body.appendChild(panel);
 
@@ -80,7 +80,7 @@
     text-shadow: 2px 2px 4px white;
     z-index: 9999;
     `;
-    document.body.appendChild(prest);
+
 
         let notif = document.createElement('div');
         notif.id = 'notif-for-cps';
@@ -92,7 +92,7 @@
         transform: translate(-50%,-50%);
         width: 100px;
         height: 50px;
-        background-color: rgba(0,5,100,0.7);
+        background-color: rgba(0,5,90,0.2);
         backdrop-filter: blur(15px);
         border-radius: 20px;
         color: white;
@@ -121,7 +121,7 @@ let LOL = function LOL() {
     clicks = clicks.filter(clickTime => now - clickTime < 1000);
     notif.innerHTML = clicks.length + ' CPS';
 }
-    setInterval(LOL, 100);
+    setInterval(LOL, 1);
     }
     thisCps();
 
@@ -141,11 +141,11 @@ let LOL = function LOL() {
     width: 200px;
     color: white;
     height: 50px;
-    background-color: rgba(0,5,100,0.7);
+    background-color: rgba(0,5,100,0.4);
     z-index: 9999;
+    cursor: pointer;
     backdrop-filter: blur(10px);
     display: block;
-    transition: 0.5s;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -182,9 +182,9 @@ let LOL = function LOL() {
     tranform: translate(-50%,-50%);
     width: 200px;
     height: 200px;
-    background-color: rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
     color: white;
-    border: 2px solid rgba(0,5,100,0.7);;
+    border: 2px solid rgba(0,0,0,0);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     z-index: 9999;
@@ -209,8 +209,8 @@ let LOL = function LOL() {
     backdrop-filter: blur(10px);
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
-    background-color: rgba(0,5,100,0.7);
-    border: 2px solid rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     height: 50px;
     `;
@@ -218,13 +218,13 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'w') {
-            KeyW.style.backgroundColor = 'white';
+            KeyW.style.backgroundColor = 'rgba(0,5,100,0.7)';
         }
     });
 
     document.addEventListener('keyup', function(e) {
         if (e.key.toLowerCase() === 'w') {
-            KeyW.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyW.style.backgroundColor = 'rgba(0,5,100,0.4)';
         }
     });
 
@@ -245,8 +245,8 @@ let LOL = function LOL() {
     backdrop-filter: blur(10px);
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
-    background-color: rgba(0,5,100,0.7);
-    border: 2px solid rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     height: 50px;
     `;
@@ -254,13 +254,13 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 's') {
-            KeyS.style.backgroundColor = 'white';
+            KeyS.style.backgroundColor = 'rgba(0,5,100,0.7)';
         }
     });
 
     document.addEventListener('keyup', function(e) {
         if (e.key.toLowerCase() === 's') {
-            KeyS.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyS.style.backgroundColor = 'rgba(0,5,100,0.4)';
         }
     });
 
@@ -281,8 +281,8 @@ let LOL = function LOL() {
     backdrop-filter: blur(10px);
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
-    background-color: rgba(0,5,100,0.7);
-    border: 2px solid rgba(0,5,100,0.7);;
+   background-color: rgba(0,5,90,0.2);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     height: 50px;
     `;
@@ -290,13 +290,13 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'a') {
-            KeyA.style.backgroundColor = 'white';
+            KeyA.style.backgroundColor = 'rgba(0,5,100,0.7)';
         }
     });
 
     document.addEventListener('keyup', function(e) {
         if (e.key.toLowerCase() === 'a') {
-            KeyA.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyA.style.backgroundColor = 'rgba(0,5,100,0.4)';
         }
     });
 
@@ -317,8 +317,8 @@ let LOL = function LOL() {
     backdrop-filter: blur(10px);
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
-    background-color: rgba(0,5,100,0.7);
-    border: 2px solid rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     height: 50px;
     `;
@@ -326,13 +326,13 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'd') {
-            KeyD.style.backgroundColor = 'white';
+            KeyD.style.backgroundColor = 'rgba(0,5,100,0.7)';
         }
     });
 
     document.addEventListener('keyup', function(e) {
         if (e.key.toLowerCase() === 'd') {
-            KeyD.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyD.style.backgroundColor = 'rgba(0,5,100,0.4)';
         }
     });
 
@@ -355,8 +355,8 @@ let LOL = function LOL() {
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
     align-items: center;
-    background-color: rgba(0,5,100,0.7);
-    border: 2px solid rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     height: 50px;
     `;
@@ -364,13 +364,13 @@ let LOL = function LOL() {
 
     document.addEventListener('mousedown', function(e) {
         if (e.button === 0) {
-            Left.style.backgroundColor = 'white';
+            Left.style.backgroundColor = 'rgba(0,5,100,0.7)';
         }
     });
 
     document.addEventListener('mouseup', function(e) {
         if (e.button === 0) {
-            Left.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            Left.style.backgroundColor = 'rgba(0,5,100,0.4)';
         }
     });
 
@@ -393,8 +393,8 @@ let LOL = function LOL() {
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
     align-items: center;
-    background-color: rgba(0,5,100,0.7);
-    border: 2px solid rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     height: 50px;
     `;
@@ -402,13 +402,13 @@ let LOL = function LOL() {
 
     document.addEventListener('mousedown', function(e) {
         if (e.button === 2) {
-            Right.style.backgroundColor = 'white';
+            Right.style.backgroundColor = 'rgba(0,5,100,0.7)';
         }
     });
 
     document.addEventListener('mouseup', function(e) {
         if (e.button === 2) {
-            Right.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            Right.style.backgroundColor = 'rgba(0,5,100,0.4)';
         }
     });
 
@@ -431,21 +431,21 @@ let LOL = function LOL() {
     border-radius: 20px;
     backdrop-filter: blur(10px);
     align-items: ;
-    background-color: rgba(0,5,100,0.7);
-    border: 2px solid rgba(0,5,100,0.7);
+    background-color: rgba(0,5,90,0.2);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     `;
      KeyBoard.appendChild(Space);
 
     document.addEventListener('keydown', function(e) {
         if (e.key === ' ') {
-            Space.style.backgroundColor = 'white';
+            Space.style.backgroundColor = 'rgba(0,5,100,0.7)';
         }
     });
 
     document.addEventListener('keyup', function(e) {
         if (e.key === ' ') {
-            Space.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            Space.style.backgroundColor = 'rgba(0,5,100,0.4)';
         }
     });
 
@@ -459,10 +459,10 @@ let LOL = function LOL() {
     transform: translate(-50%,-50%);
     width: 300px;
     height: 70px;
+    border: 2px solid rgba(0,0,0,0);
     background-color: rgba(0,5,100,0);
     border-radius: 15px;
     box-shadow: 2px 2px 4px black;
-    border: 1px solid rgba(0,5,100,0.8);
     `;
     panel.appendChild(logoSpace);
 
@@ -503,11 +503,11 @@ let LOL = function LOL() {
     height: 370px;
     display: flex;
     gap: 2px;
+    border: 2px solid rgba(0,0,0,0);
     overflow-y: auto;
     flex-direction: column;
     background-color: rgba(0,5,100,0);
     border-radius: 20px;
-    border: 1px solid rgba(0,5,100,0.8);
     box-shadow: 2px 2px 4px black;
     `;
     panel.appendChild(options);
@@ -523,7 +523,6 @@ let LOL = function LOL() {
     background-color: rgba(0,5,100,0);
     display: none;
     border-radius: 20px;
-    border: 1px solid rgba(0,5,100,0.8);
     box-shadow: 2px 2px 4px black;
     `;
     panel.appendChild(options2);
@@ -539,7 +538,7 @@ let LOL = function LOL() {
     height: 370px;
     background-color: rgba(0,5,100,0);
     border-radius: 20px;
-    border: 1px solid rgba(0,5,100,0.8);
+    border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     display: flex;
     flex-direction: column;
@@ -562,7 +561,9 @@ let LOL = function LOL() {
     background-position: center;
     background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M2%208a4%204%200%200%201%204%20-4h12a4%204%200%200%201%204%204v8a4%204%200%200%201%20-4%204h-12a4%204%200%200%201%20-4%20-4v-8%22/%3E%3Cpath%20d=%22M10%209l5%203l-5%203l0%20-6%22/%3E%3C/svg%3E');
     border-radius: 15px;
+    border: 2px solid rgba(0,0,0,0);
     padding: 5px;
+    cursor: pointer;
     `;
     panel.appendChild(links);
 
@@ -583,6 +584,8 @@ let LOL = function LOL() {
     background-position: center;
     background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23ffffff%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M9%2019c-4.3%201.4%20-4.3%20-2.5%20-6%20-3m12%205v-3.5c0%20-1%20.1%20-1.4%20-.5%20-2c2.8%20-.3%205.5%20-1.4%205.5%20-6a4.6%204.6%200%200%200%20-1.3%20-3.2a4.2%204.2%200%200%200%20-.1%20-3.2s-1.1%20-.3%20-3.5%201.3a12.3%2012.3%200%200%200%20-6.2%200c-2.4%20-1.6%20-3.5%20-1.3%20-3.5%20-1.3a4.2%204.2%200%200%200%20-.1%203.2a4.6%204.6%200%200%200%20-1.3%203.2c0%204.6%202.7%205.7%205.5%206c-.6%20.6%20-.6%201.2%20-.5%202v3.5%22/%3E%3C/svg%3E');
     border-radius: 15px;
+    border: 2px solid rgba(0,0,0,0);
+    cursor: pointer;
     padding: 5px;
     `;
     panel.appendChild(links2);
@@ -592,7 +595,7 @@ let LOL = function LOL() {
     }
 
     const Home = document.createElement('button');
-    Home.innerHTML = '🏠Home';
+    Home.innerHTML = 'Home';
     Home.id = 'home';
     Home.style = `
     width: 100%;
@@ -601,11 +604,11 @@ let LOL = function LOL() {
     color: white;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
-    border: 1px solid rgba(0,5,100,0.5);
+    border: 2px solid rgba(0,0,0,0);
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.5s;
+    transition: 0.2s;
     `;
     tabs.appendChild(Home);
 
@@ -619,12 +622,12 @@ let LOL = function LOL() {
             btnS.style.display = 'none';
             btnCps.style.display = 'none';
             btnKeys.style.display = 'none';
-            Welcome2.style.display = 'none';
+            bVPN.style.display = 'none';
         }
     }
 
     const Combat = document.createElement('button');
-    Combat.innerHTML = '⚔️Combat';
+    Combat.innerHTML = 'Combat';
     Combat.id = 'Combat';
     Combat.style = `
     width: 100%;
@@ -633,11 +636,11 @@ let LOL = function LOL() {
     color: white;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
-    border: 1px solid rgba(0,5,100,0.5);
+    border: 2px solid rgba(0,0,0,0);
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.5s;
+    transition: 0.2s;
     `;
     tabs.appendChild(Combat);
 
@@ -651,13 +654,13 @@ let LOL = function LOL() {
             btnC.style.display = 'block';
             btnS.style.display = 'none';
             btnCps.style.display = 'block';
-            Welcome2.style.display = 'none';
+            bVPN.style.display = 'none';
             O = false;
         }
     }
 
     const Movement = document.createElement('button');
-    Movement.innerHTML = '🏃Movement';
+    Movement.innerHTML = 'Movement';
     Movement.id = 'Movement';
     Movement.style = `
     width: 100%;
@@ -666,11 +669,11 @@ let LOL = function LOL() {
     color: white;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
-    border: 1px solid rgba(0,5,100,0.5);
+    border: 2px solid rgba(0,0,0,0);
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.5s;
+    transition: 0.2s;
     `;
     tabs.appendChild(Movement);
 
@@ -684,13 +687,13 @@ let LOL = function LOL() {
             btnC.style.display = 'none';
             btnS.style.display = 'block';
             btnCps.style.display = 'none';
-            Welcome2.style.display = 'none';
+            bVPN.style.display = 'none';
             O = false;
         }
     }
 
     const Visuals = document.createElement('button');
-    Visuals.innerHTML = '👁Visuals';
+    Visuals.innerHTML = 'Visuals';
     Visuals.id = 'Visuals';
     Visuals.style = `
     width: 100%;
@@ -699,11 +702,11 @@ let LOL = function LOL() {
     color: white;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
-    border: 1px solid rgba(0,5,100,0.5);
     cursor: pointer;
+    border: 2px solid rgba(0,0,0,0);
     font-size: 16px;
     font-weight: bold;
-    transition: 0.5s;
+    transition: 0.2s;
     `;
     tabs.appendChild(Visuals);
 
@@ -717,95 +720,11 @@ let LOL = function LOL() {
             btnC.style.display = 'none';
             btnS.style.display = 'none';
             btnCps.style.display = 'none';
-            Welcome2.style.display = 'none';
+            bVPN.style.display = 'block';
             O = false;
         }
     }
 
-    const Settings = document.createElement('button');
-    Settings.innerHTML = '⚙️Settings';
-    Settings.id = 'Settings';
-    Settings.style = `
-    width: 100%;
-    height: 50px;
-    background-color: rgba(0,0,0,0);
-    color: white;
-    box-shadow: 2px 2px 4px black;
-    border-radius: 15px;
-    border: 1px solid rgba(0,5,100,0.5);
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.2s;
-    `;
-    tabs.appendChild(Settings);
-
-    Settings.onclick = function() {
-        let O = true;
-        if (O) {
-            AimHelper.style.display = 'none';
-            Welcome.style.display = 'none';
-            btnKeys.style.display = 'none';
-            cpsCounter.style.display = 'none';
-            btnC.style.display = 'none';
-            btnS.style.display = 'none';
-            btnCps.style.display = 'none';
-            Welcome2.style.display = 'block';
-            O = false;
-        }
-    }
-
-    let Welcome2 = document.createElement('div');
-    Welcome2.id = 'welcome2';
-    Welcome2.innerHTML = 'Settings';
-    Welcome2.style = `
-    position: fixed;
-    width: 66%;
-    height: 40px;
-    font-size: 30px;
-    border: 1px solid rgba(0,5,100,0.9);
-    background-color: rgba(0,0,0,0);
-    box-shadow: 2px 2px 4px black;
-    text-shadow: 2px 2px 4px black;
-    border-radius: 20px;
-    transition: 0.5s;
-    color: white;
-    padding: 5px;
-    `;
-    options.appendChild(Welcome2);
-
-    let Updates2 = document.createElement('div');
-    Updates2.id = 'developer';
-    Updates2.innerHTML = 'Developer :';
-    Updates2.style = `
-    position: fixed;
-    top: 35%;
-    left: 30%;
-    text-shadow: 2px 2px 4px black;
-    `;
-    Welcome2.appendChild(Updates2);
-
-    const UpdatesText2 = document.createElement('div');
-    UpdatesText2.id = 'all-dev-info-1';
-    UpdatesText2.innerHTML = '- This Client is made by @cartoon-bloxd on youtube and esdrastetangtetang-ctrl on github...';
-    UpdatesText2.style = `
-    position: fixed;
-    top: 45%;
-    left: 30%;
-    text-shadow: 2px 2px 4px black;
-    `;
-    Welcome2.appendChild(UpdatesText2);
-
-    const UpdatesText3 = document.createElement('div');
-    UpdatesText3.id = 'all-dev-info2';
-    UpdatesText3.innerHTML = '- it took me 2 weeks to make this client :)';
-    UpdatesText3.style = `
-    position: fixed;
-    top: 55%;
-    left: 30%;
-    text-shadow: 2px 2px 4px black;
-    `;
-    Welcome2.appendChild(UpdatesText3);
 
     function newButton(text, ParentPanel) {
         let btn = document.createElement('button');
@@ -821,8 +740,10 @@ let LOL = function LOL() {
         background-color: rgba(0,0,0,0);
         box-shadow: 2px 2px 4px black;
         border-radius: 20px;
+        border: 2px solid rgba(0,0,0,0);
         font-weight: bold;
         display: none;
+        cursor: pointer;
         transition: 0.5s;
         color: white;
         padding: 5px;
@@ -858,7 +779,7 @@ let LOL = function LOL() {
     box-shadow: 2px 2px 4px black;
     text-shadow: 2px 2px 4px black;
     border-radius: 20px;
-    transition: 0.5s;
+    transition: o.5s;
     color: white;
     padding: 5px;
     `;
@@ -888,7 +809,7 @@ let LOL = function LOL() {
 
     const UpdatesText2 = document.createElement('div');
     UpdatesText2.id = 'all-updates-soon';
-    UpdatesText2.innerHTML = '- auto-ctrl soon...';
+    UpdatesText2.innerHTML = '- adding new modules soon...';
     UpdatesText2.style = `
     position: fixed;
     top: 55%;
@@ -1026,36 +947,59 @@ let LOL = function LOL() {
         }
     }
 
-    let btnCps = newButton('AutoCtrl : OFF', options);
+    let btnCps = newButton('Right CPS Booster : OFF', options);
+    let omni = false;
+    let oma = null;
     btnCps.onclick = function() {
         if (btnCps.innerHTML.includes('OFF')) {
-            btnCps.innerHTML = '';
+            btnCps.innerHTML = 'Right CPS Booster : ON';
             btnCps.style.color = 'rgba(0,255,100,1)';
-            document.addEventListener('keydown', function(ev) {
-                if (ev.key === 's') {
-                    document.dispatchEvent(new KeyboardEvent('keydown', {
-                key: 'Control',
-                code: 'ControlLeft',
-                keyCode: 17,
-                which: 17,
-                bubbles: true,
-                cancelable: true
-                    }));
-
-                    document.dispatchEvent(new KeyboardEvent('keyup', {
-                key: 'Control',
-                code: 'ControlLeft',
-                keyCode: 17,
-                which: 17,
-                bubbles: true,
-                cancelable: true
-                    }));
-                }
-            });
+            omni = true;
         } else {
-            btnCps.innerHTML = 'A';
+            btnCps.innerHTML = 'Right CPS Booster : OFF';
             btnCps.style.color = 'white';
+            omni = false
+            if (oma) {
+                clearInterval(oma);
+                oma = null;
+            }
         }
     }
 
+        document.addEventListener('mousedown', function(ev) {
+            if (omni === true && ev.button === 2) {
+                if (!oma) {
+                oma = setInterval(() => {
+            document.dispatchEvent(new KeyboardEvent('keydown', {
+                key: 'e',
+                code: 'KeyE',
+                keyCode: 69,
+                which: 69,
+                bubbles: true,
+                cancelable: true
+            }));
+                document.dispatchEvent(new KeyboardEvent('keyup', {
+                key: 'e',
+                code: 'KeyE',
+                keyCode: 69,
+                which: 69,
+                bubbles: true,
+                cancelable: true
+            }));
+            }, 75);
+                }
+        }
+        });
+
+    document.addEventListener('mouseup', function(ev) {
+        if (ev.button === 2) {
+            clearInterval(oma);
+            oma = null;
+        }
+    });
+
+    let bVPN = newButton('VPN Option', options); 
+    bVPN.onclick = function() {
+        window.open('https://one.one.one.one/');
+    }
 })();
