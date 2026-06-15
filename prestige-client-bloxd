@@ -205,6 +205,7 @@ let LOL = function LOL() {
     align-items: center;
     text-align: center;
     justify-content: center;
+    transition: 0.3;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     width: 50px;
@@ -218,7 +219,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'w') {
-            KeyW.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyW.style.backgroundColor = 'rgba(0,5,100,0.9)';
         }
     });
 
@@ -242,6 +243,7 @@ let LOL = function LOL() {
     text-align: center;
     justify-content: center;
     border-radius: 20px;
+    transition: 0.3s;
     backdrop-filter: blur(10px);
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
@@ -254,7 +256,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 's') {
-            KeyS.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyS.style.backgroundColor = 'rgba(0,5,100,0.9)';
         }
     });
 
@@ -275,13 +277,14 @@ let LOL = function LOL() {
     transform: translate(-50%,-50%);
     color: white;
     align-items: center;
+    transition: 0.3s;
     text-align: center;
     justify-content: center;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
-   background-color: rgba(0,5,90,0.2);
+    background-color: rgba(0,5,90,0.2);
     border: 2px solid rgba(0,0,0,0);
     box-shadow: 2px 2px 4px black;
     height: 50px;
@@ -290,7 +293,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'a') {
-            KeyA.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyA.style.backgroundColor = 'rgba(0,5,100,0.9)';
         }
     });
 
@@ -312,6 +315,7 @@ let LOL = function LOL() {
     color: white;
     align-items: center;
     text-align: center;
+    transition: 0.3s;
     justify-content: center;
     border-radius: 20px;
     backdrop-filter: blur(10px);
@@ -326,7 +330,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'd') {
-            KeyD.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            KeyD.style.backgroundColor = 'rgba(0,5,100,0.9)';
         }
     });
 
@@ -349,6 +353,7 @@ let LOL = function LOL() {
     color: white;
     border-radius: 20px;
     align-items: center;
+    transition: 0.3s;
     text-align: center;
     justify-content: center;
     backdrop-filter: blur(10px);
@@ -364,7 +369,7 @@ let LOL = function LOL() {
 
     document.addEventListener('mousedown', function(e) {
         if (e.button === 0) {
-            Left.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            Left.style.backgroundColor = 'rgba(0,5,100,0.9)';
         }
     });
 
@@ -390,6 +395,7 @@ let LOL = function LOL() {
     justify-content: center;
     border-radius: 20px;
     backdrop-filter: blur(10px);
+    transition: 0.3s;
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
     align-items: center;
@@ -402,7 +408,7 @@ let LOL = function LOL() {
 
     document.addEventListener('mousedown', function(e) {
         if (e.button === 2) {
-            Right.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            Right.style.backgroundColor = 'rgba(0,5,100,0.9)';
         }
     });
 
@@ -425,6 +431,7 @@ let LOL = function LOL() {
     font-size: 30px;
     text-align: center;
     text-shadow: 2px 2px 4px solid black;
+    transition: 0.3s;
     justify-content: center;
     transform: translate(-50%,-50%);
     color: white;
@@ -439,7 +446,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key === ' ') {
-            Space.style.backgroundColor = 'rgba(0,5,100,0.7)';
+            Space.style.backgroundColor = 'rgba(0,5,100,0.9)';
         }
     });
 
@@ -623,6 +630,7 @@ let LOL = function LOL() {
             btnCps.style.display = 'none';
             btnKeys.style.display = 'none';
             bVPN.style.display = 'none';
+            Acc.style.display = 'none';
         }
     }
 
@@ -655,6 +663,7 @@ let LOL = function LOL() {
             btnS.style.display = 'none';
             btnCps.style.display = 'block';
             bVPN.style.display = 'none';
+            Acc.style.display = 'none';
             O = false;
         }
     }
@@ -688,6 +697,7 @@ let LOL = function LOL() {
             btnS.style.display = 'block';
             btnCps.style.display = 'none';
             bVPN.style.display = 'none';
+            Acc.style.display = 'none';
             O = false;
         }
     }
@@ -721,6 +731,7 @@ let LOL = function LOL() {
             btnS.style.display = 'none';
             btnCps.style.display = 'none';
             bVPN.style.display = 'block';
+            Acc.style.display = 'block';
             O = false;
         }
     }
@@ -998,8 +1009,10 @@ let LOL = function LOL() {
         }
     });
 
-    let bVPN = newButton('VPN Option', options); 
+    let bVPN = newButton('VPN Option', options);
     bVPN.onclick = function() {
         window.open('https://one.one.one.one/');
     }
+
+    let Acc = newButton('Account Generator', options);
 })();
