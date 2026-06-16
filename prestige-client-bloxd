@@ -205,7 +205,7 @@ let LOL = function LOL() {
     align-items: center;
     text-align: center;
     justify-content: center;
-    transition: 0.3;
+    transition: 0.3s;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     width: 50px;
