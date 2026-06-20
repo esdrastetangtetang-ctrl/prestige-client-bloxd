@@ -15,6 +15,7 @@
 // @icon         data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%23FFFFFF%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-sparkles%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22%20/%3E%3Cpath%20d=%22M16%2018a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m0%20-12a2%202%200%200%201%202%202a2%202%200%200%201%202%20-2a2%202%200%200%201%20-2%20-2a2%202%200%200%201%20-2%202m-7%2012a6%206%200%200%201%206%20-6a6%206%200%200%201%20-6%20-6a6%206%200%200%201%20-6%206a6%206%200%200%201%206%206%22%20/%3E%3C/svg%3E
 // @grant        none
 // ==/UserScript==
+/*CopyRight @cartoon-bloxd on YT and CartoonBloxd_YT on discord*/
 
 
 
@@ -120,6 +121,19 @@ let LOL = function LOL() {
     const now = Date.now();
     clicks = clicks.filter(clickTime => now - clickTime < 1000);
     notif.innerHTML = clicks.length + ' CPS';
+
+    if (clicks.length < 7) {
+        notif.style.color = 'red';
+    }
+    if (clicks.length >= 7) {
+        notif.style.color = 'orange';
+    }
+    if (clicks.length > 13) {
+        notif.style.color = 'rgba(0,255,100,1)';
+    }
+    if (clicks.length > 30) {
+        notif.style.color = 'cyan';
+    }
 }
     setInterval(LOL, 1);
     }
@@ -219,7 +233,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'w') {
-            KeyW.style.backgroundColor = 'rgba(0,5,100,0.9)';
+            KeyW.style.backgroundColor = 'rgba(0,1,50,1)';
         }
     });
 
@@ -256,7 +270,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 's') {
-            KeyS.style.backgroundColor = 'rgba(0,5,100,0.9)';
+            KeyS.style.backgroundColor = 'rgba(0,1,50,1)';
         }
     });
 
@@ -293,7 +307,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'a') {
-            KeyA.style.backgroundColor = 'rgba(0,5,100,0.9)';
+            KeyA.style.backgroundColor = 'rgba(0,1,50,1)';
         }
     });
 
@@ -330,7 +344,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key.toLowerCase() === 'd') {
-            KeyD.style.backgroundColor = 'rgba(0,5,100,0.9)';
+            KeyD.style.backgroundColor = 'rgba(0,1,50,1)';
         }
     });
 
@@ -353,7 +367,6 @@ let LOL = function LOL() {
     color: white;
     border-radius: 20px;
     align-items: center;
-    transition: 0.3s;
     text-align: center;
     justify-content: center;
     backdrop-filter: blur(10px);
@@ -369,7 +382,7 @@ let LOL = function LOL() {
 
     document.addEventListener('mousedown', function(e) {
         if (e.button === 0) {
-            Left.style.backgroundColor = 'rgba(0,5,100,0.9)';
+            Left.style.backgroundColor = 'rgba(0,1,50,1)';
         }
     });
 
@@ -395,7 +408,6 @@ let LOL = function LOL() {
     justify-content: center;
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    transition: 0.3s;
     width: 50px;
     text-shadow: 2px 2px 4px solid black;
     align-items: center;
@@ -408,7 +420,7 @@ let LOL = function LOL() {
 
     document.addEventListener('mousedown', function(e) {
         if (e.button === 2) {
-            Right.style.backgroundColor = 'rgba(0,5,100,0.9)';
+            Right.style.backgroundColor = 'rgba(0,1,50,1)';
         }
     });
 
@@ -446,7 +458,7 @@ let LOL = function LOL() {
 
     document.addEventListener('keydown', function(e) {
         if (e.key === ' ') {
-            Space.style.backgroundColor = 'rgba(0,5,100,0.9)';
+            Space.style.backgroundColor = 'rgba(0,1,50,1)';
         }
     });
 
@@ -510,6 +522,7 @@ let LOL = function LOL() {
     height: 370px;
     display: flex;
     gap: 2px;
+    transition: 0.5s;
     border: 2px solid rgba(0,0,0,0);
     overflow-y: auto;
     flex-direction: column;
@@ -614,6 +627,7 @@ let LOL = function LOL() {
     border: 2px solid rgba(0,0,0,0);
     cursor: pointer;
     font-size: 16px;
+    transition: 0.5s;
     font-weight: bold;
     transition: 0.2s;
     `;
@@ -645,6 +659,7 @@ let LOL = function LOL() {
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
     border: 2px solid rgba(0,0,0,0);
+    transition: 0.5s;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
@@ -680,6 +695,7 @@ let LOL = function LOL() {
     border-radius: 15px;
     border: 2px solid rgba(0,0,0,0);
     cursor: pointer;
+    transition: 0.5s;
     font-size: 16px;
     font-weight: bold;
     transition: 0.2s;
@@ -712,6 +728,7 @@ let LOL = function LOL() {
     color: white;
     box-shadow: 2px 2px 4px black;
     border-radius: 15px;
+    transition: 0.5s;
     cursor: pointer;
     border: 2px solid rgba(0,0,0,0);
     font-size: 16px;
@@ -740,6 +757,7 @@ let LOL = function LOL() {
     function newButton(text, ParentPanel) {
         let btn = document.createElement('button');
         btn.innerHTML = text;
+        btn.id = 'all-btns';
         btn.style = `
         position: relative;
         left: 48%;
@@ -779,7 +797,7 @@ let LOL = function LOL() {
 
     let Welcome = document.createElement('div');
     Welcome.id = 'welcome';
-    Welcome.innerHTML = 'Welcome to Prestige Client';
+    Welcome.innerHTML = 'Welcome to Prestige Client😎';
     Welcome.style = `
     position: fixed;
     width: 66%;
@@ -790,7 +808,7 @@ let LOL = function LOL() {
     box-shadow: 2px 2px 4px black;
     text-shadow: 2px 2px 4px black;
     border-radius: 20px;
-    transition: o.5s;
+    transition: 0.5s;
     color: white;
     padding: 5px;
     `;
@@ -845,34 +863,39 @@ let LOL = function LOL() {
     `;
     document.body.appendChild(aim);
 
-    let aimCircle = document.createElement('div');
-    aimCircle.innerHTML = '◌';
-    aimCircle.style = `
+    const scope = document.createElement('div');
+    document.body.appendChild(scope);
+    scope.id = 'kirka-scope';
+    scope.style = `
     position: fixed;
-    color: red;
-    text-shadow: 8px 8px 16px red;
-    transform: translate(-50%,-50%);
-    font-size: 200px;
-    top: 45.5%;
-    left: 49.5%;
     z-index: 9999;
-    pointer-events: none;
+    border-radius: 100px;
+    width: 100px;
     display: none;
+    height: 100px;
+    top: 49.5%;
+    left: 49.7%;
+    transform: translate(-50%,-50%);
+    border: 1px solid red;
+    pointer-events: none;
+    background-color: rgba(0,0,0,0);
     `;
-    document.body.appendChild(aimCircle);
 
+    let Hover = `
+    #btn:hover {
+    border: 2px solid white;
+    }
+    `;
 
     document.addEventListener('mousedown', function(ev) {
         if (ev.button === 0 || ev.button === 2) {
-            aimCircle.style.color = 'green';
-            aimCircle.style.textShadow = '4px 4px 8px green';
+            scope.style.border = '1px solid green';
         }
     });
 
     document.addEventListener('mouseup', function(ev) {
         if (ev.button === 0 || ev.button === 2) {
-            aimCircle.style.color = 'red';
-            aimCircle.style.textShadow = '4px 4px 8px red';
+            scope.style.border = '1px solid red';
         }
     });
 
@@ -923,11 +946,13 @@ let LOL = function LOL() {
     if (btnC.innerHTML.includes('OFF')) {
         btnC.innerHTML = 'FOV Circle : ON';
         cpsCounter.style.color = 'rgba(0,255,100,1)';
-        aimCircle.style.display = 'block';
+        scope.style.display = 'block';
+        btnC.style.color = 'rgba(0,255,100,1)';
     } else {
         btnC.innerHTML = 'FOV Circle : OFF';
         cpsCounter.style.color = 'white';
-        aimCircle.style.display = 'none';
+        scope.style.display = 'none';
+        btnC.style.color = 'white';
     }
     }
 
@@ -1015,4 +1040,10 @@ let LOL = function LOL() {
     }
 
     let Acc = newButton('Account Generator', options);
+    Acc.onclick = function() {
+        localStorage.clear();
+        sessionStorage.clear();
+        alert('a new account will be created');
+        location.reload();
+    }
 })();
