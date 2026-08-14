@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Prestige Client
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      2.0.0
 // @description  try to take over the world!
 // @author       CartoonBloxd
 // @match        https://bloxd.io/*
@@ -21,7 +21,8 @@
 
 (function() {
 
-    window.onerror = () => alert('Issue Detected');
+    window.onerror = () => console.log('Issue Detected');
+    document.title = 'Prestige Client Bloxd';
 
     const panel = document.createElement('div');
     panel.id = 'panel';
@@ -105,6 +106,10 @@
 
     function thisCps() {
     let clicks = [];
+
+        document.addEventListener('touchstart', function(ev) {
+            clicks.push(Date.now());
+    });
 
     document.addEventListener('mousedown', function(ev) {
         if (ev.button === 0) {
@@ -500,7 +505,7 @@ let LOL = function LOL() {
 
     const Ptitle = document.createElement('div');
     Ptitle.id = 'Prestige-title';
-    Ptitle.innerHTML = 'Prestige ';
+    Ptitle.innerHTML = 'Prestige ᵛ²';
     Ptitle.style = `
     position: absolute;
     top: 15%;
@@ -645,13 +650,16 @@ let LOL = function LOL() {
             btnKeys.style.display = 'none';
             bVPN.style.display = 'none';
             Acc.style.display = 'none';
+            urlBar.style.display = 'none';
+            LauncherTitle.style.display = 'none';
+            btnL.style.display = 'none';
         }
     }
 
     const Combat = document.createElement('button');
     Combat.innerHTML = 'Combat';
     Combat.id = 'Combat';
-    Combat.style = `
+    Combat.style.cssText = `
     width: 100%;
     height: 50px;
     background-color: rgba(0,0,0,0);
@@ -679,6 +687,9 @@ let LOL = function LOL() {
             btnCps.style.display = 'block';
             bVPN.style.display = 'none';
             Acc.style.display = 'none';
+            urlBar.style.display = 'none';
+            LauncherTitle.style.display = 'none';
+            btnL.style.display = 'none';
             O = false;
         }
     }
@@ -686,7 +697,7 @@ let LOL = function LOL() {
     const Movement = document.createElement('button');
     Movement.innerHTML = 'Movement';
     Movement.id = 'Movement';
-    Movement.style = `
+    Movement.style.cssText = `
     width: 100%;
     height: 50px;
     background-color: rgba(0,0,0,0);
@@ -714,6 +725,9 @@ let LOL = function LOL() {
             btnCps.style.display = 'none';
             bVPN.style.display = 'none';
             Acc.style.display = 'none';
+            urlBar.style.display = 'none';
+            LauncherTitle.style.display = 'none';
+            btnL.style.display = 'none';
             O = false;
         }
     }
@@ -721,7 +735,7 @@ let LOL = function LOL() {
     const Visuals = document.createElement('button');
     Visuals.innerHTML = 'Visuals';
     Visuals.id = 'Visuals';
-    Visuals.style = `
+    Visuals.style.cssText = `
     width: 100%;
     height: 50px;
     background-color: rgba(0,0,0,0);
@@ -737,6 +751,7 @@ let LOL = function LOL() {
     `;
     tabs.appendChild(Visuals);
 
+
     Visuals.onclick = function() {
         let O = true;
         if (O) {
@@ -749,9 +764,134 @@ let LOL = function LOL() {
             btnCps.style.display = 'none';
             bVPN.style.display = 'block';
             Acc.style.display = 'block';
+            urlBar.style.display = 'none';
+            LauncherTitle.style.display = 'none';
+            btnL.style.display = 'none';
             O = false;
         }
     }
+    const LauncherTitle = document.createElement('div');
+    options.appendChild(LauncherTitle);
+    LauncherTitle.id = 'launcher-title';
+    LauncherTitle.innerHTML = 'Prestige Launcher';
+    LauncherTitle.style.cssText = `
+    position: fixed;
+    display: none;
+    transform: translate(-50%,-50%);
+    top: 25%;
+    font-size: 25px;
+    left: 50%;
+    color: white;
+    box-shadow: 10px white;
+    `;
+
+    const textBar = document.createElement('input');
+    options.appendChild(textBar);
+    textBar.type = 'text';
+    textBar.id = 'enter-url';
+    textBar.placeholder = 'Enter your script src/script raw link...';
+    textBar.style.cssText = `
+    position: fixed;
+    transform: translate(-50%,-50%);
+    top: 35%;
+    box-shadow: 0 0 10px black;
+    left: 50%;
+    display: none;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0);
+    `;
+    const urlBar = document.getElementById('enter-url');
+
+    const stylePlaceholder = document.createElement('style');
+    stylePlaceholder.innerHTML = `
+    #enter-url::placeholder {
+        color: white;
+        opacity: 0.8;
+    }
+    `;
+
+    const btnLaunch = document.createElement('button');
+    options.appendChild(btnLaunch);
+    document.head.appendChild(stylePlaceholder);
+    btnLaunch.id = 'click-to-launch';
+    btnLaunch.innerHTML = 'Launch';
+    btnLaunch.style.cssText = `
+    position: fixed;
+    transform: translate(-50%,-50%);
+    top: 35%;
+    box-shadow: 0 0 10px black;
+    left: 80%;
+    display: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0);
+    `;
+    const btnL = document.getElementById('click-to-launch');
+
+    btnLaunch.onclick = async function() {
+        const urls = textBar.value.trim();
+        if (!urls.includes('http') || !urls.includes('.')) {
+            alert('the link should include https and .');
+            return;
+        }
+        if (urls) {
+            try {
+            const fetched = await fetch(urls);
+            const text = await fetched.text();
+                alert('Script succefully launched !');
+            new Function(text)();
+            } catch(er) {
+                alert('ERROR:', er);
+                console.error('ERROR:', er)
+            }
+        }
+    }
+
+    const Launcher = document.createElement('button');
+    Launcher.innerHTML = 'Launcher';
+    Launcher.id = 'Launcher';
+    Launcher.style.cssText = `
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 2px solid rgba(0,0,0,0);
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
+    `;
+    tabs.appendChild(Launcher);
+
+    Launcher.onclick = function() {
+        let O = true;
+        if (O) {
+            AimHelper.style.display = 'none';
+            Welcome.style.display = 'none';
+            btnKeys.style.display = 'none';
+            cpsCounter.style.display = 'none';
+            btnC.style.display = 'none';
+            btnS.style.display = 'none';
+            btnCps.style.display = 'none';
+            bVPN.style.display = 'none';
+            Acc.style.display = 'none';
+            urlBar.style.display = 'block';
+            LauncherTitle.style.display = 'block';
+            btnL.style.display = 'block';
+            O = false;
+        }
+    }
+
 
 
     function newButton(text, ParentPanel) {
@@ -827,7 +967,7 @@ let LOL = function LOL() {
 
     const UpdatesText = document.createElement('div');
     UpdatesText.id = 'all-updates-soon';
-    UpdatesText.innerHTML = '- fixing the cps booster...';
+    UpdatesText.innerHTML = '- fixing the cps booster';
     UpdatesText.style = `
     position: fixed;
     top: 45%;
@@ -1043,7 +1183,12 @@ let LOL = function LOL() {
     Acc.onclick = function() {
         localStorage.clear();
         sessionStorage.clear();
-        alert('a new account will be created');
-        location.reload();
+        document.cookie.split(";").forEach(function(cookie) {
+    let eqPos = cookie.indexOf("=");
+    let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+});
+       alert('a new account will be created');
+       location.reload();
     }
 })();
